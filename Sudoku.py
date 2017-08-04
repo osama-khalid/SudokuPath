@@ -60,18 +60,18 @@ class Sudoku:
       #Previous Column
       colPrev=colCurr
       colCurr=colCurr.right
-      #Creates links between left neigbor
+      #Creates links between left neighbor
       colPrev.W=colCurr
       colCurr.E=colPrev
-      #Creates links between NE neigbor
+      #Creates links between NE neighbor
       if colCurr.E.N!=None:
         colCurr.E.N.SW=cc
         colCurr.NE=colCurr.E.N
-        #Creates links between neigbor above
+        #Creates links between neighbor above
         if colCurr.E.N.W!=None:
           colCurr.E.N.W.S = cc
           colCurr.N=colCurr.E.N.W
-          #Creates links between NW neigbor  
+          #Creates links between NW neighbor  
           if colCurr.E.N.W.W !=None:
             colCurr.E.N.W.W.SE=cc
             colCurr.NW=colCurr.E.N.W.W
@@ -128,6 +128,7 @@ class Sudoku:
         of a node is 1 higher. e.g. 6->7 form an edge, 
         7-5 do not. Neighbors being considered are all 8 
         grids that surround the "current" grid
+        See readme for further examples.
    '''
     currCol=self.head
     currRow=currCol
@@ -206,6 +207,8 @@ if __name__ == '__main__':
     Repeat until it gets boring.
     <Will do a Mathematical Analysis of the number of iterations needed to attain steady state later.>
     '''
+    #Sudoku from 
+    # https://raw.githubusercontent.com/osama-khalid/SudokuPath/master/Sudoku.jpg
     T=[[8,7,5,3,9,6,1,4,2],[4,6,1,7,8,2,9,3,5],[2,3,9,4,5,1,6,8,7],[3,2,6,8,4,5,7,9,1],[9,1,8,6,3,7,2,5,4],[7,5,4,2,1,9,3,6,8],[1,9,3,5,2,4,8,7,6],[5,8,7,1,6,3,4,2,9],[6,4,2,9,7,8,5,1,3]]
 
 
